@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="AI Contractor Mastermind phase assessment for contractors."
+    />
+    <title>AI Contractor Mastermind | Phase Assessment</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="./public/logo.jpeg" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="assessment-shell">
+      <aside class="brand-panel" aria-label="Assessment status">
+        <img class="brand-logo" src="./public/logo.jpeg" alt="AI Contractor logo" />
+        <div class="brand-copy">
+          <p class="eyebrow">AI Contractor Mastermind</p>
+          <h1>CONTRACTOR PHASE ASSESSMENT</h1>
+          <p>
+            Answer the questions. Get the phase and module queue that gives you the
+            fastest value from the course.
+          </p>
+        </div>
+
+        <div class="status-stack">
+          <div>
+            <span class="status-label">Progress</span>
+            <div class="progress-track" aria-hidden="true">
+              <span id="progressFill"></span>
+            </div>
+          </div>
+          <div class="phase-meter" id="phaseMeter" aria-label="Phase score preview"></div>
+        </div>
+      </aside>
+
+      <section class="work-panel" aria-live="polite">
+        <form id="assessmentForm" class="questionnaire">
+          <div class="form-topline">
+            <div>
+              <p class="eyebrow">Start Here</p>
+              <h2>FIND YOUR HIGHEST VALUE STARTING POINT</h2>
+            </div>
+            <span class="question-counter" id="questionCounter">01 / 12</span>
+          </div>
+
+          <div class="context-strip" aria-label="Optional contractor context">
+            <label>
+              <span>Trade or Trade Options</span>
+              <input
+                id="tradeInput"
+                name="tradeContext"
+                type="text"
+                placeholder="Painting, roofing, HVAC, still deciding"
+              />
+            </label>
+            <label>
+              <span>City / State Market</span>
+              <input
+                id="marketInput"
+                name="marketContext"
+                type="text"
+                placeholder="Phoenix, AZ"
+              />
+            </label>
+          </div>
+
+          <div id="questionList" class="question-list"></div>
+
+          <div class="form-actions">
+            <button class="ghost-button" type="button" id="resetButton">Reset</button>
+            <button class="accent-button" type="submit">Show My Module Queue</button>
+          </div>
+        </form>
+
+        <section id="results" class="results hidden" aria-label="Recommended course path">
+          <div class="result-header">
+            <p class="eyebrow">Recommended Start</p>
+            <h2 id="resultTitle"></h2>
+            <p id="resultSummary"></p>
+          </div>
+
+          <div class="result-grid">
+            <div class="result-block">
+              <h3>STARTING PHASE</h3>
+              <p id="phaseRecommendation"></p>
+            </div>
+            <div class="result-block">
+              <h3>BUYER PATH</h3>
+              <p id="buyerPath"></p>
+            </div>
+            <div class="result-block">
+              <h3>TRADE FOCUS</h3>
+              <p id="tradeFocus"></p>
+            </div>
+          </div>
+
+          <div class="rules-section">
+            <h3>COURSE NON-NEGOTIABLES</h3>
+            <ul>
+              <li>No money upfront. The client pays after completion and formal sign-off.</li>
+              <li>Base quotes cover primary labor only. Structural necessities stay separate.</li>
+              <li>Scaffolding, weep screeds, and similar requirements are billable add-ons.</li>
+              <li>Use single, solid photos for proof. No collages in ads or portfolio assets.</li>
+              <li>Cosmetic trades promise realistic texture matching, never a guaranteed match.</li>
+            </ul>
+          </div>
+
+          <div class="modules-section">
+            <div class="section-heading">
+              <p class="eyebrow">Your Queue</p>
+              <h3>BEST MODULES TO WATCH FIRST</h3>
+            </div>
+            <div id="moduleQueue" class="module-queue"></div>
+          </div>
+
+          <div class="skip-section">
+            <h3>SKIP FOR NOW</h3>
+            <p id="skipGuidance"></p>
+          </div>
+
+          <div class="results-actions">
+            <button class="ghost-button" type="button" id="editAnswersButton">Edit Answers</button>
+            <button class="accent-button" type="button" id="copyResultButton">
+              Copy Summary
+            </button>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
